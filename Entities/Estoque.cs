@@ -7,7 +7,10 @@ namespace ProjetoIntegrador.Entities
     {
         [Key]
         public long Id { get; set; }
-        public string Ingrediete { get; set; }
+
+        [Required]
+        public string Ingrediente { get; set; }
+
         public int Quantidade { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]

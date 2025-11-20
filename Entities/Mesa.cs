@@ -7,9 +7,11 @@ namespace ProjetoIntegrador.Entities
     {
         [Key]
         public long Id { get; set; }
-        public List<Pedido> Pedidos { get; set; }
+
+        [Required]
+        public List<Pedido>? Pedidos { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
-        public decimal CustoTotal { get; set; }
+        public decimal? CustoTotal { get; set; }
     }
 }

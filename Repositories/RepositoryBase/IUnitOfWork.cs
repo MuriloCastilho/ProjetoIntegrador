@@ -7,6 +7,7 @@
 
         // IContaRepository Contas { get; } // Exemplo, se você criar um repositório para Contas
         // ITransacaoRepository Transacoes { get; } // E assim por diante...
+        IMesaRepository Mesas { get; }
 
         /// <summary>
         /// Salva todas as mudanças feitas nesta unidade de trabalho para o banco de dados.

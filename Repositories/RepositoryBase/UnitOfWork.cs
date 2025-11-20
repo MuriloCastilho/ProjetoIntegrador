@@ -8,6 +8,7 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
 
         // As propriedades da interface são preenchidas com instâncias concretas dos repositórios
         // public IContaRepository Contas { get; private set; } // Exemplo
+        public IMesaRepository Mesas { get; private set; }
 
         public UnitOfWork(ProjetoIntegradorDbContext context)
         {
@@ -16,6 +17,8 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
             // Inicializa os repositórios, passando o MESMO DbContext para todos.
             // Isso é crucial para que todos trabalhem na mesma transação.
             // Contas = new ContaRepository(_context); // Exemplo
+
+            Mesas = new MesaRepository(_context);
         }
 
         // <summary>

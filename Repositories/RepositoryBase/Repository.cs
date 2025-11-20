@@ -14,7 +14,7 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
             _dbSet = context.Set<TEntity>();
         }
 
-        public virtual async Task<TEntity?> GetByIdAsync(Guid id)
+        public virtual async Task<TEntity?> GetByIdAsync(long id)
         {
             return await _dbSet.FindAsync(id);
         }
