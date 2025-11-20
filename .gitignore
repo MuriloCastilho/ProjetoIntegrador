@@ -1,14 +1,3 @@
-## Ignorar pastas de build e temporárias
+.vs/
 bin/
 obj/
-
-## Ignorar arquivos do Visual Studio
-.vs/
-.vscode/
-*.user
-*.suo
-*.userosscache
-*.sln.docstates
-
-## Ignorar arquivos de ambiente (segurança)
-.env
