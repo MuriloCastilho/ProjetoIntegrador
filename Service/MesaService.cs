@@ -3,7 +3,7 @@ using ProjetoIntegrador.Repositories.RepositoryBase;
 
 namespace ProjetoIntegrador.Service
 {
-    public class MesaService
+    public class MesaService : IMesaService
     {
         private readonly IUnitOfWork _unitOfWork;
         public MesaService(IUnitOfWork unitOfWork)

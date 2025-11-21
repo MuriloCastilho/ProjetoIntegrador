@@ -12,6 +12,7 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         public IIngredienteRepository Ingredientes { get; private set; }
         public IPratoIngredienteRepository PratoIngredientes { get; private set; }
         public IPratoRepository Prato { get; private set; }
+        public IFuncionarioRepository Funcionario { get; private set; }
 
         public UnitOfWork(ProjetoIntegradorDbContext context)
         {
