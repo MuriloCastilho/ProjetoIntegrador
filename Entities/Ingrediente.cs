@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace ProjetoIntegrador.Entities
 {
-    public class Estoque
+    public class Ingrediente
     {
         [Key]
         public long Id { get; set; }
 
         [Required]
-        public string Ingrediente { get; set; }
+        public string Nome { get; set; }
 
         public int Quantidade { get; set; }
 

@@ -8,6 +8,10 @@
         // IContaRepository Contas { get; } // Exemplo, se você criar um repositório para Contas
         // ITransacaoRepository Transacoes { get; } // E assim por diante...
         IMesaRepository Mesas { get; }
+        IIngredienteRepository Ingredientes { get; }
+        IPratoIngredienteRepository PratoIngredientes { get; }
+        IPratoRepository Prato { get; }
+
         IFuncionarioRepository Funcionario { get; }
 
         /// <summary>

@@ -9,6 +9,9 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         // As propriedades da interface são preenchidas com instâncias concretas dos repositórios
         // public IContaRepository Contas { get; private set; } // Exemplo
         public IMesaRepository Mesas { get; private set; }
+        public IIngredienteRepository Ingredientes { get; private set; }
+        public IPratoIngredienteRepository PratoIngredientes { get; private set; }
+        public IPratoRepository Prato { get; private set; }
         public IFuncionarioRepository Funcionario { get; private set; }
 
         public UnitOfWork(ProjetoIntegradorDbContext context)

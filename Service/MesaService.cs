@@ -13,7 +13,7 @@ namespace ProjetoIntegrador.Service
 
         public async Task<bool> CreatMesa()
         {
-            var mesa = new Mesa
+            var mesa = new Mesa();
             {
 
             };

@@ -8,7 +8,6 @@ namespace ProjetoIntegrador.Entities
         [Key]
         public long Id { get; set; }
         public string Nome { get; set; }
-        public List<Estoque> Ingredientes { get; set; }
 
         [Column(TypeName = "decimal(18, 2)")]
         public decimal Preco { get; set; }
