@@ -11,5 +11,7 @@ namespace ProjetoIntegrador.Entities
         public long MesaId { get; set; }
 
         public StatusPedidoEnum Status { get; set; }
+
+        public string Descricao { get; set; }
     }
 }
