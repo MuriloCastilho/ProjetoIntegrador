@@ -23,6 +23,10 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
             // Contas = new ContaRepository(_context); // Exemplo
 
             Mesas = new MesaRepository(_context);
+            Ingredientes = new IngredienteRepository(_context);
+            PratoIngredientes = new PratoIngredienteRepository(_context);
+            Prato = new PratoRepository(_context);
+            Funcionario = new FuncionarioRepository(_context);
         }
 
         // <summary>

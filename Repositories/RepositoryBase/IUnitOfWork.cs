@@ -11,7 +11,6 @@
         IIngredienteRepository Ingredientes { get; }
         IPratoIngredienteRepository PratoIngredientes { get; }
         IPratoRepository Prato { get; }
-
         IFuncionarioRepository Funcionario { get; }
 
         /// <summary>

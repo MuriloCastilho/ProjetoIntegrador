@@ -21,7 +21,7 @@ namespace ProjetoIntegrador.Controllers
         [Route("cria-ingrediente")]
         public async Task<IActionResult> CreateIngrediente(CreateIngredienteInput input)
         {
-            var ingrediente = _ingredienteService.CreateIngrediente(input);
+            var ingrediente = await _ingredienteService.CreateIngrediente(input);
 
             if (ingrediente == null)
                 return BadRequest("Erro ao cadastrar ingrediente");
@@ -33,7 +33,7 @@ namespace ProjetoIntegrador.Controllers
         [Route("busca-ingrediente")]
         public async Task<IActionResult> GetIngrediente(long id)
         {
-            var ingrediente = _unitOfWork.Ingredientes.GetByIdAsync(id);
+            var ingrediente = await _unitOfWork.Ingredientes.GetByIdAsync(id);
 
             return Ok(ingrediente);
         }
