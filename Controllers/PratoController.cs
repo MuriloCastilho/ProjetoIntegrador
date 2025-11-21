@@ -15,6 +15,9 @@ namespace ProjetoIntegrador.Controllers
             _pratoService = pratoService;
         }
 
+
+        [HttpPost]
+        [Route("cria-prato")]
         public async Task<IActionResult> CreatePrato(CreatePratoInput input)
         {
             var prato = await _pratoService.CreatePrato(input);
