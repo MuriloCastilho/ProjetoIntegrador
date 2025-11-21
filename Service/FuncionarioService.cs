@@ -5,7 +5,7 @@ using ProjetoIntegrador.Entities;
 using ProjetoIntegrador.Repositories.RepositoryBase;
 
 namespace ProjetoIntegrador.Service {
-    public class FuncionarioService {
+    public class FuncionarioService : IFuncionarioService {
         private readonly IUnitOfWork _unitOfWork;
         public FuncionarioService(IUnitOfWork unitOfWork) { 
             _unitOfWork = unitOfWork;
