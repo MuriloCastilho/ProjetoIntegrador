@@ -25,7 +25,7 @@ builder.Services.AddScoped<IPratoRepository, PratoRepository>();
 builder.Services.AddScoped<IPratoService, PratoService>();
 
 builder.Services.AddScoped<IMesaRepository, MesaRepository>();
-builder.Services.AddScoped<IMesaService, IMesaService>();
+builder.Services.AddScoped<IMesaService, MesaService>();
 
 builder.Services.AddScoped<IPratoIngredienteRepository, PratoIngredienteRepository>();
 

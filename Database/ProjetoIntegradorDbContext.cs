@@ -6,7 +6,7 @@ namespace ProjetoIntegrador.Database
     public class ProjetoIntegradorDbContext : DbContext
     {
         public ProjetoIntegradorDbContext(DbContextOptions<ProjetoIntegradorDbContext> options) : base(options) { }
-        public DbSet<Ingrediente> Estoque { get; set; }
+        public DbSet<Ingrediente> Ingredientes { get; set; }
         public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Mesa> Mesas { get; set; }
         public DbSet<Pedido> Pedidos { get; set; }
