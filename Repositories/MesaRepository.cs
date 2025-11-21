@@ -8,7 +8,6 @@ namespace ProjetoIntegrador.Repositories
 {
     public class MesaRepository : Repository<Mesa>, IMesaRepository
     {
-
         private readonly ProjetoIntegradorDbContext _dbcontext;
 
         public MesaRepository(ProjetoIntegradorDbContext dbContext) : base(dbContext)

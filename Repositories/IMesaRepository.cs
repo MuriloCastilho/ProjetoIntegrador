@@ -6,7 +6,5 @@ namespace ProjetoIntegrador.Repositories
 {
     public interface IMesaRepository : IRepository<Mesa>
     {
-        Task<Mesa> GetMesa(long id);
-
     }
 }
