@@ -12,5 +12,23 @@ namespace ProjetoIntegrador.Repositories {
         public FuncionarioRepository(ProjetoIntegradorDbContext dbcontext) : base(dbcontext) {
             _dbcontext = dbcontext;
         }
+
+        public async Task<bool> FindAsync(string nome, string senha) {
+            var funcionario = await _dbcontext.Funcionarios
+                .Where(f => f.Nome == nome)
+                .FirstOrDefaultAsync();
+
+            if (funcionario == null) {
+                return false;
+            }
+
+            if (funcionario.Senha != senha) {
+                return false;
+            }
+
+            return true;
+
+        }
+
     }
 }

@@ -26,5 +26,17 @@ namespace ProjetoIntegrador.Controllers
 
             return true;
         }
+
+        [HttpPost]
+        [Route("login")]
+        public async Task<IActionResult> FindAsync(string nome, string senha) {
+
+            var login = await _funcionarioRepository.FindAsync(nome, senha);
+
+            if (!login)
+                return Unauthorized("Usuario ou senha incorreta");
+
+            return Ok("Usuario logado com sucesso");
+        }
     }
 }
