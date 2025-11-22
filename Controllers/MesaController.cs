@@ -1,33 +1,37 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using ProjetoIntegrador.Dtos;
-using ProjetoIntegrador.Repositories;
+using ProjetoIntegrador.Repositories.RepositoryBase;
 using ProjetoIntegrador.Service;
 
-namespace ProjetoIntegrador.Controllers
-{
+namespace ProjetoIntegrador.Controllers {
     [ApiController]
     [Route("api/web/[controller]")]
-    public class MesaController : ControllerBase
-    {
-        private readonly IMesaRepository _mesaRepository;
-        private readonly IMesaService _mesaService;
+    public class MesaController : Controller {
 
-        public MesaController(IMesaRepository mesaRepository, IMesaService mesaService)
-        {
-            _mesaRepository = mesaRepository;
+        private readonly IMesaService _mesaService;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public MesaController(IMesaService mesaService) {
             _mesaService = mesaService;
         }
 
         [HttpPost]
         [Route("cria-mesa")]
-        public async Task<bool> CreateMesa(MesaInput input)
-        {
-            var repositorio = await _mesaService.CreatMesa();
+        public async Task<IActionResult> CreateMesa(MesaInput input) {
+            var mesa = await _mesaService.CreateMesa(input);
 
-            if (repositorio == false)
-                throw new Exception("Mesa não criada");
+            if (mesa == null)
+                return BadRequest("Erro ao criar mesa");
 
-            return true;
+            return Ok("Mesa criada com sucesso");
+        }
+
+        [HttpGet]
+        [Route("busca-mesa")]
+        public async Task<IActionResult> GetMesa(long id) {
+            var mesa = await _unitOfWork.Mesas.GetByIdAsync(id);
+
+            return Ok(mesa);
         }
     }
 }

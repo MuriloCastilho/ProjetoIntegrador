@@ -1,8 +1,10 @@
-﻿namespace ProjetoIntegrador.Service
+﻿using ProjetoIntegrador.Dtos;
+
+namespace ProjetoIntegrador.Service
 {
     public interface IMesaService
     {
-        Task<bool> CreatMesa();
+        Task<bool> CreateMesa(MesaInput input);
 
     }
 }
