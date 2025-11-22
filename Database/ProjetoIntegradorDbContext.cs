@@ -12,5 +12,6 @@ namespace ProjetoIntegrador.Database
         public DbSet<Pedido> Pedidos { get; set; }
         public DbSet<Prato> Pratos { get; set; }
         public DbSet<PratoIngrediente> PratoIngredientes { get; set; }
+        public DbSet<Reserva> Reservas { get; set; }
     }
 }

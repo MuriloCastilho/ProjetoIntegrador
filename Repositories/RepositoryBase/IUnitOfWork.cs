@@ -12,6 +12,7 @@
         IPratoIngredienteRepository PratoIngredientes { get; }
         IPratoRepository Prato { get; }
         IFuncionarioRepository Funcionario { get; }
+        IReservaRepository Reserva { get; }
 
         /// <summary>
         /// Salva todas as mudanças feitas nesta unidade de trabalho para o banco de dados.
