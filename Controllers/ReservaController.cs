@@ -42,6 +42,7 @@ namespace ProjetoIntegrador.Controllers
             var reserva = await _unitOfWork.Reserva.GetByIdAsync(id);
 
             _unitOfWork.Reserva.Delete(reserva);
+            _unitOfWork.CompleteAsync();
 
             return Ok("Reserva deletada com sucesso"); 
         }

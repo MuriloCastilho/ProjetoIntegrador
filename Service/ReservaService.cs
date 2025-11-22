@@ -4,7 +4,7 @@ using ProjetoIntegrador.Repositories.RepositoryBase;
 
 namespace ProjetoIntegrador.Service
 {
-    public class ReservaService
+    public class ReservaService : IReservaService
     {
         private readonly IUnitOfWork _unitOfWork;
 

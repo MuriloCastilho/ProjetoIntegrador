@@ -31,10 +31,9 @@ namespace ProjetoIntegrador.Service
                 {
                     var pratoIngrediente = new PratoIngrediente
                     {
-                        PratoId = prato.Id,
+                        PratoId = prato.Id, 
                         IngredienteId = ingredienteId
                     };
-
                     await _unitOfWork.PratoIngredientes.AddAsync(pratoIngrediente);
                 }
 
@@ -42,6 +41,16 @@ namespace ProjetoIntegrador.Service
             }
 
             return true;
+        }
+
+        public async Task DeletePrato(long id)
+        {
+            var prato = await _unitOfWork.Prato.GetByIdAsync(id);
+
+            _unitOfWork.Prato.Delete(prato);
+            await _unitOfWork.CompleteAsync();
+
+
         }
     }
 }
