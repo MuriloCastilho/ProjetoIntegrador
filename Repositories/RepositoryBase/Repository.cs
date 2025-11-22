@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using ProjetoIntegrador.Database;
+using System.Linq.Expressions;
 
 namespace ProjetoIntegrador.Repositories.RepositoryBase
 {
@@ -37,6 +38,11 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         public virtual void Delete(TEntity entity)
         {
             _dbSet.Remove(entity);
+        }
+
+        public async Task<IEnumerable<TEntity>> FindAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _dbSet.Where(predicate).ToListAsync();
         }
     }
 }

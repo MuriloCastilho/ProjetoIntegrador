@@ -35,6 +35,8 @@ builder.Services.AddScoped<IFuncionarioService, FuncionarioService>();
 builder.Services.AddScoped<IPratoIngredienteRepository, PratoIngredienteRepository>();
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddScoped<IPedidoPratoRepository, PedidoPratoRepository>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

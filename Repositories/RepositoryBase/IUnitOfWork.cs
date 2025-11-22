@@ -1,4 +1,6 @@
-﻿namespace ProjetoIntegrador.Repositories.RepositoryBase
+﻿using Microsoft.EntityFrameworkCore.Storage;
+
+namespace ProjetoIntegrador.Repositories.RepositoryBase
 {
     public interface IUnitOfWork : IDisposable
     {
@@ -13,11 +15,14 @@
         IPratoRepository Prato { get; }
         IFuncionarioRepository Funcionario { get; }
         IReservaRepository Reserva { get; }
+        IPedidoRepository Pedido { get; }
 
         /// <summary>
         /// Salva todas as mudanças feitas nesta unidade de trabalho para o banco de dados.
         /// </summary>
         /// <returns>O número de registros afetados no banco de dados.</returns>
         Task<int> CompleteAsync();
+
+        IDbContextTransaction BeginTransaction();
     }
 }

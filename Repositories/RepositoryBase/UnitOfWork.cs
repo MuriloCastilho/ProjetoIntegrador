@@ -1,4 +1,5 @@
-﻿using ProjetoIntegrador.Database;
+﻿using Microsoft.EntityFrameworkCore.Storage;
+using ProjetoIntegrador.Database;
 
 namespace ProjetoIntegrador.Repositories.RepositoryBase
 {
@@ -14,6 +15,8 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         public IPratoRepository Prato { get; private set; }
         public IFuncionarioRepository Funcionario { get; private set; }
         public IReservaRepository Reserva { get; private set; }
+        public IPedidoRepository Pedido { get; private set; }
+        public IPedidoPratoRepository PedidoPrato { get; private set; }
 
         public UnitOfWork(ProjetoIntegradorDbContext context)
         {
@@ -29,6 +32,8 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
             Prato = new PratoRepository(_context);
             Funcionario = new FuncionarioRepository(_context);
             Reserva = new ReservaRepository(_context);
+            Pedido = new PedidoRepository(_context);
+            PedidoPrato = new PedidoPratoRepository(_context);
         }
 
         // <summary>
@@ -37,6 +42,12 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         public async Task<int> CompleteAsync()
         {
             return await _context.SaveChangesAsync();
+
+        }
+
+        public IDbContextTransaction BeginTransaction()
+        {
+            return _context.Database.BeginTransaction();
         }
 
         // <summary>
