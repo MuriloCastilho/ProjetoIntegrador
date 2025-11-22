@@ -9,5 +9,6 @@ namespace ProjetoIntegrador.Entities
         public DateTime Date { get; set; }
         public string Telefone { get; set; }
         public string Email { get; set; }
+        public string Nome { get; set; }
     }
 }
