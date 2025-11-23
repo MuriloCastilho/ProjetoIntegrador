@@ -5,6 +5,8 @@ using ProjetoIntegrador.Repositories;
 using ProjetoIntegrador.Repositories.RepositoryBase;
 using ProjetoIntegrador.Service;
 
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -36,6 +38,9 @@ builder.Services.AddScoped<IPratoIngredienteRepository, PratoIngredienteReposito
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddScoped<IPedidoPratoRepository, PedidoPratoRepository>();
+
+builder.Services.AddScoped<IReservaRepository, ReservaRepository>();
+builder.Services.AddScoped<IReservaService, ReservaService>();
 
 var app = builder.Build();
 

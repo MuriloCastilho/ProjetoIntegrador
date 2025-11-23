@@ -12,17 +12,17 @@ namespace ProjetoIntegrador.Controllers
         private readonly IReservaService _reservaService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public ReservaController(IReservaService reservaService)
+        public ReservaController(IReservaService reservaService, IUnitOfWork unitOfWork)
         {
             _reservaService = reservaService;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost]
         [Route("cria")]
-        public async Task<IActionResult> CreateReserva(CreateReceitaInput input)
+        public async Task<IActionResult> CreateReserva([FromBody] CreateReservaInput input)
         {
             var reserva = await _reservaService.CreateReserva(input);
-
             return Ok(reserva);
         }
 
@@ -30,21 +30,26 @@ namespace ProjetoIntegrador.Controllers
         [Route("lista")]
         public async Task<IActionResult> GetAllReserva()
         {
-            var reservas = _unitOfWork.Reserva.GetAllAsync();
-
+            var reservas = await _unitOfWork.Reserva.GetAllAsync();
             return Ok(reservas);
         }
 
         [HttpDelete]
         [Route("deleta")]
-        public async Task<IActionResult> DeleteReserva([FromQuery]long id)
+        public async Task<IActionResult> DeleteReserva([FromQuery] long id)
         {
             var reserva = await _unitOfWork.Reserva.GetByIdAsync(id);
 
-            _unitOfWork.Reserva.Delete(reserva);
-            _unitOfWork.CompleteAsync();
+            if (reserva == null)
+            {
+                return NotFound("Reserva não encontrada.");
+            }
 
-            return Ok("Reserva deletada com sucesso"); 
+            _unitOfWork.Reserva.Delete(reserva);
+
+            await _unitOfWork.CompleteAsync();
+
+            return Ok("Reserva deletada com sucesso");
         }
     }
 }

@@ -16,6 +16,7 @@ namespace ProjetoIntegrador.Repositories.RepositoryBase
         IFuncionarioRepository Funcionario { get; }
         IReservaRepository Reserva { get; }
         IPedidoRepository Pedido { get; }
+        IPedidoPratoRepository PedidoPrato { get; }
 
         /// <summary>
         /// Salva todas as mudanças feitas nesta unidade de trabalho para o banco de dados.

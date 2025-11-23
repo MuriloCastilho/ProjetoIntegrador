@@ -13,7 +13,7 @@ namespace ProjetoIntegrador.Service
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<Reserva> CreateReserva(CreateReceitaInput input)
+        public async Task<Reserva> CreateReserva(CreateReservaInput input)
         {
             var reserva = new Reserva
             {

@@ -1,6 +1,6 @@
 ﻿namespace ProjetoIntegrador.Dtos
 {
-    public class CreateReceitaInput
+    public class CreateReservaInput
     {
         public int Pessoa { get; set; }
         public DateOnly Data { get; set; }

@@ -5,7 +5,7 @@ namespace ProjetoIntegrador.Service
 {
     public interface IReservaService
     {
-        Task<Reserva> CreateReserva(CreateReceitaInput input);
+        Task<Reserva> CreateReserva(CreateReservaInput input);
 
     }
 }

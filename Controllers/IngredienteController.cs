@@ -12,9 +12,10 @@ namespace ProjetoIntegrador.Controllers
         private readonly IIngredienteService _ingredienteService;
         private readonly IUnitOfWork _unitOfWork;
 
-        public IngredienteController(IIngredienteService ingredienteService)
+        public IngredienteController(IIngredienteService ingredienteService, IUnitOfWork unitOfWork)
         {
             _ingredienteService = ingredienteService;
+            _unitOfWork = unitOfWork;
         }
 
         [HttpPost]
@@ -30,10 +31,15 @@ namespace ProjetoIntegrador.Controllers
         }
 
         [HttpGet]
-        [Route("busca-ingrediente")]
-        public async Task<IActionResult> GetIngrediente(long id)
+        [Route("lista-ingrediente")]
+        public async Task<IActionResult> GetIngrediente()
         {
-            var ingrediente = await _unitOfWork.Ingredientes.GetByIdAsync(id);
+            var ingrediente = await _unitOfWork.Ingredientes.GetAllAsync();
+
+            if (ingrediente == null)
+            {
+                return NotFound("Ingrediente não encontrado.");
+            }
 
             return Ok(ingrediente);
         }
